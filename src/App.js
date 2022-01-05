@@ -5,6 +5,8 @@ import emailImg from './imgs/email.png'
 import cityLights from './imgs/city-lights.png'
 import speedtestImg from './imgs/speedtest.png'
 import quizImg from './imgs/quizcrop.png'
+import acLogo from './imgs/ac_logo.PNG'
+import onlineCVImg from './imgs/online-cv.png'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -86,10 +88,18 @@ function App() {
         <SimpleCard
           title='Algorithm manager'
           text='Algorithm manager is a JavaFX practice project that helps store and manage different kinds of algorithms.'
-          img={speedtestImg}
+          img={acLogo}
           button1text='Git'
           button2text=''
           button1link='https://gitlab.jyu.fi/matoskni/ohj2'
+          button2link='' />
+        <SimpleCard
+          title='This online CV'
+          text='Contact me and you can be cool too...'
+          img={onlineCVImg}
+          button1text='Git'
+          button2text=''
+          button1link='https://github.com/ni-eminen/new-landing-page'
           button2link='' />
         </div>
       </div>
