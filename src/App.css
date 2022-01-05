@@ -1,0 +1,72 @@
+html { 
+  background: url(imgs/city-lights.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h2 {
+  color: white;
+}
+
+.App {
+  display: inline-flex;
+  width: 100%;
+}
+
+.leftPane {
+  flex: 1;
+  text-align: center;
+  color: white;
+  padding: 0 3em;
+}
+
+.rightPane {
+  flex: 2;
+  display: inline-flex;
+}
+
+#cards {
+  margin: 7em auto;
+  width: 100%;
+}
+
+#selfImg {
+  /* position: relative; */
+  margin-top: 6em;
+  width: 70%;
+  top: 20%;
+}
+
+.container {
+  margin: 20px 0;
+  min-width: 235px;
+}
+
+.cardwrapper {
+  position: relative;
+  width: 30%;
+  height: 300px;
+  display: inline-block;
+  margin: 5px;
+  min-width: 247px;
+}
+
+@media (max-aspect-ratio: 1/1), (max-width: 880px) {
+    .App{
+    display: block;
+  }
+  #cards div {
+    display: block;
+  }
+  .rightPane {
+    /* width: 100%; */
+    display: inline;
+    width: 100%;
+  }
+  .cardwrapper {
+    width: 95%;
+    margin: 1em auto;
+  }
+}
