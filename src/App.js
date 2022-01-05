@@ -40,9 +40,14 @@ const SimpleCard = ({title, text, img, button1text, button2text, button1link, bu
             {text}
           </Typography>
         </CardContent>
+        {/* rendering buttons if they have content */}
         <CardActions>
+          {button1text && 
           <Button target='_blank' sx={{position: "absolute", bottom: ".5em", left: "1em", color: "purple"}} href={button1link} size="small">{button1text}</Button>
+          }
+          {button2text && 
           <Button target='_blank' sx={{position: "absolute", bottom: ".5em", left: "6em", color: "purple"}} href={button2link} size="small">{button2text}</Button>
+          }
         </CardActions>
       </Card>
     </div>
@@ -78,6 +83,14 @@ function App() {
           button2text='Git'
           button1link='https://matiasnieminen.fi/speed-test/'
           button2link='https://github.com/ni-eminen/TypingSpeedTest' />
+        <SimpleCard
+          title='Algorithm manager'
+          text='Algorithm manager is a JavaFX practice project that helps store and manage different kinds of algorithms.'
+          img={speedtestImg}
+          button1text='Git'
+          button2text=''
+          button1link='https://gitlab.jyu.fi/matoskni/ohj2'
+          button2link='' />
         </div>
       </div>
     </div>

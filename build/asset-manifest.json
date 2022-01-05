@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9311b647.css",
+    "main.js": "/static/js/main.a6fa3878.js",
+    "static/media/city-lights.png": "/static/media/city-lights.7daedef7d3bd13e1bc8a.png",
+    "static/media/self.png": "/static/media/self.871f30b7b3647ec8b9de.png",
+    "static/media/quizcrop.png": "/static/media/quizcrop.1dfb9447d1ee46e0b158.png",
+    "static/media/speedtest.png": "/static/media/speedtest.755f4642938fe7fec366.png",
+    "static/media/placeholder.png": "/static/media/placeholder.ca0dcb9e5a9d60b27c9a.png",
+    "static/media/email.png": "/static/media/email.f23e9a932fdaf264e1fb.png",
+    "index.html": "/index.html",
+    "main.9311b647.css.map": "/static/css/main.9311b647.css.map",
+    "main.a6fa3878.js.map": "/static/js/main.a6fa3878.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9311b647.css",
+    "static/js/main.a6fa3878.js"
+  ]
+}
