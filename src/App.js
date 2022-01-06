@@ -89,8 +89,8 @@ function App() {
           button1link='https://matiasnieminen.fi/speed-test/'
           button2link='https://github.com/ni-eminen/TypingSpeedTest' />
         <SimpleCard
-          title='Algorithm manager'
-          text='Algorithm manager is a JavaFX practice project that helps store and manage different kinds of algorithms.'
+          title='Algorithm Cache'
+          text='Algorithm Cache is a JavaFX practice project that helps store and manage different kinds of algorithms.'
           img={acLogo}
           button1text='Git'
           button2text=''
