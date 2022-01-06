@@ -15,11 +15,14 @@ import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 
 
-const InfoBlock = ({img, text}) => {
+const InfoBlock = ({img, text, link}) => {
   return (
     <div className='container'>
       <img src={img} style={{height: "3em", verticalAlign: "middle"}} alt="A location pin"/>
+      {link ?
+      <a href={link} style={{display: "inline-block", verticalAlign: "middle", marginLeft: "10px", color: "white", textDecoration: "none"}}>{text}</a> :
       <p style={{display: "inline-block", verticalAlign: "middle", marginLeft: "10px"}}>{text}</p>
+      }
     </div>
   )
 }
@@ -64,7 +67,7 @@ function App() {
         <div className='textbox'>
           <h2>Matias Nieminen</h2>
             <InfoBlock img={locationImg} text={'Helsinki, Finland'}></InfoBlock>
-            <InfoBlock img={emailImg} text={'matiasnie2@gmail.com'}></InfoBlock>
+            <InfoBlock link='mailto:matiasnie2@gmail.com' img={emailImg} text={'matiasnie2@gmail.com'}></InfoBlock>
         </div>
       </div>
       <div className='rightPane'>

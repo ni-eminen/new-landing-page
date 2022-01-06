@@ -1,10 +1,27 @@
-html { 
+/* html { 
   background: url(imgs/city-lights.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+} */
+
+html {
+  background-image:url('imgs/city-lights.png');
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%; 
+  overflow: hidden;
+  }
+  
+  body {           
+  height:100%;
+  overflow: auto;
+  }
+
 
 h2 {
   color: white;
@@ -54,7 +71,11 @@ h2 {
 }
 
 @media (max-aspect-ratio: 1/1), (max-width: 880px) {
-    .App{
+  html {
+    height: 120%; 
+  }
+
+  .App{
     display: block;
   }
   #cards div {
