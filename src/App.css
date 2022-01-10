@@ -4,6 +4,11 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow-x: hidden;  
+}
+
+body {
+  padding-top: 5em;
 }
 
 /* html {
@@ -13,7 +18,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100%; 
+  height: 100vh; 
   overflow: hidden;
   }
   
@@ -23,7 +28,7 @@ html {
   } */
 
 
-h2 {
+h2, h1 {
   color: white;
 }
 
@@ -41,17 +46,19 @@ h2 {
 
 .rightPane {
   flex: 2;
-  display: inline-flex;
+  display: block;
+  padding: 5px;
 }
 
 #cards {
-  margin: 7em auto;
+  margin: 0 auto 3em;
   width: 100%;
+  position: absolute;
 }
 
 #selfImg {
   /* position: relative; */
-  margin-top: 6em;
+  margin-top: 3em;
   width: 70%;
   top: 20%;
 }
@@ -70,13 +77,43 @@ h2 {
   min-width: 247px;
 }
 
+#buttons {
+  margin: 1em auto;
+  display: block;
+}
+
+/* .react-pdf__Page__canvas {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  margin: 0 auto;
+} */
+
+#cv {
+  width: 80%;
+  display: block;
+}
+
+#cvDiv {
+  display: block;
+  width: 80%;
+  margin: 5px auto;
+  position: absolute;
+  overflow-x: hidden;
+}
+
 @media (max-aspect-ratio: 1/1), (max-width: 880px) {
   html {
     height: 120%; 
+    overflow-x: hidden;  
   }
 
   .App{
     display: block;
+  }
+  #cards {
+    overflow-y: auto;
+    height: 45em;
   }
   #cards div {
     display: block;
@@ -89,5 +126,14 @@ h2 {
   .cardwrapper {
     width: 95%;
     margin: 1em auto;
+  }
+  
+  #buttons {
+    text-align: center;
+  }
+
+  #cv {
+    margin: auto;
+    width: 100%;
   }
 }

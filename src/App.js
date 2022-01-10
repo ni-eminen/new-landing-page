@@ -1,4 +1,5 @@
 import './App.css';
+import CV from './imgs/CV.jpg'
 import selfImg from './imgs/self.png'
 import locationImg from './imgs/placeholder.png'
 import emailImg from './imgs/email.png'
@@ -13,6 +14,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
+import { useSpring, useTransition, animated } from 'react-spring'
+import { useState } from 'react';
+
+//Pdf viewer
+import { Document, Page, pdfjs } from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
 const InfoBlock = ({img, text, link}) => {
@@ -60,6 +67,43 @@ const SimpleCard = ({title, text, img, button1text, button2text, button1link, bu
 }
 
 function App() {
+  //Spring test
+  const [toggle, setToggle] = useState(false)
+
+  const [projectsFade, projectsFadeApi] = useSpring(() => ({opacity: 1, transform: 'translate(0px)'}))
+  const [CVfade, CVFadeApi] = useSpring(() => ({opacity: 0, transform: 'translate(0px)'}))
+
+  const toggleProjects = () =>{
+    if (toggle) {
+      projectsFadeApi({opacity: 1, transform: 'translate(0px)'})
+      return
+    }
+    projectsFadeApi({opacity: 0, transform: 'translate(-50px)'})
+  }
+
+  const toggleCV = () => {
+    if (!toggle) {
+      CVFadeApi({opacity: 1, transform: 'translate(0px)'})
+      return
+    }
+    CVFadeApi({opacity: 0, transform: 'translate(500px)'})
+  }
+
+  const toggleView = () => {
+      setTimeout(() => {
+        toggle ?  toggleProjects() :
+                  toggleCV()
+        setToggle(!toggle)
+      }, 200)
+      toggle ?  toggleCV() :
+                toggleProjects()
+  }
+
+  //For CV and Projects buttons
+  const buttonStyle = {
+    marginLeft: '1em'
+  }
+
   return (
     <div className="App">
       <div className='leftPane'>
@@ -71,39 +115,50 @@ function App() {
         </div>
       </div>
       <div className='rightPane'>
-        <div id='cards'>
-        <SimpleCard
-          title='JYY Quiz'
-          text='A commission by JYY to accommodate freshers to the city of Jyväskylä'
-          img={quizImg}
-          button1text='Project'
-          button2text='Git'
-          button1link='https://matiasnieminen.fi/NewQuiz/'
-          button2link='https://github.com/ni-eminen/jyy-peli' />
-        <SimpleCard
-          title='Typing speed test'
-          text='Work in progress. Simple typing speed test game with leaderboards.'
-          img={speedtestImg}
-          button1text='Project'
-          button2text='Git'
-          button1link='https://matiasnieminen.fi/speed-test/'
-          button2link='https://github.com/ni-eminen/TypingSpeedTest' />
-        <SimpleCard
-          title='Algorithm Cache'
-          text='Algorithm Cache is a JavaFX practice project that helps store and manage different kinds of algorithms.'
-          img={acLogo}
-          button1text='Git'
-          button2text=''
-          button1link='https://gitlab.jyu.fi/matoskni/ohj2'
-          button2link='' />
-        <SimpleCard
-          title='This online CV'
-          text='Contact me and you can be cool too...'
-          img={onlineCVImg}
-          button1text='Git'
-          button2text=''
-          button1link='https://github.com/ni-eminen/new-landing-page'
-          button2link='' />
+        <div id='buttons'>
+        <Button style={{marginLeft: '5px'}} variant='contained' onClick={() => toggleView()}>Projects</Button>
+        <Button style={buttonStyle} variant='contained' onClick={() => toggleView()}>CV</Button>
+        </div>
+        <animated.div id='cardsSpring' style={projectsFade}>
+          <div id='cards'>
+            <SimpleCard
+              title='JYY Quiz'
+              text='A commission by JYY to accommodate freshers to the city of Jyväskylä'
+              img={quizImg}
+              button1text='Project'
+              button2text='Git'
+              button1link='https://matiasnieminen.fi/NewQuiz/'
+              button2link='https://github.com/ni-eminen/jyy-peli' />
+            <SimpleCard
+              title='Typing speed test'
+              text='Work in progress. Simple typing speed test game with leaderboards.'
+              img={speedtestImg}
+              button1text='Project'
+              button2text='Git'
+              button1link='https://matiasnieminen.fi/speed-test/'
+              button2link='https://github.com/ni-eminen/TypingSpeedTest' />
+            <SimpleCard
+              title='Algorithm Cache'
+              text='Algorithm Cache is a JavaFX practice project that helps store and manage different kinds of algorithms.'
+              img={acLogo}
+              button1text='Git'
+              button2text=''
+              button1link='https://gitlab.jyu.fi/matoskni/ohj2'
+              button2link='' />
+            <SimpleCard
+              title='This online CV'
+              text='Contact me and you can be cool too...'
+              img={onlineCVImg}
+              button1text='Git'
+              button2text=''
+              button1link='https://github.com/ni-eminen/new-landing-page'
+              button2link='' />
+          </div>
+        </animated.div>
+        <div id='cvWrapper' style={{width: '100%', overflowX: 'hidden'}}>
+        <animated.div id='CVdiv' style={CVfade}>
+          <img src={CV} id='cv'></img>
+        </animated.div>
         </div>
       </div>
     </div>
