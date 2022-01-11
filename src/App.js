@@ -116,8 +116,7 @@ function App() {
       </div>
       <div className='rightPane'>
         <div id='buttons'>
-        <Button style={{marginLeft: '5px'}} variant='contained' onClick={() => toggleView()}>Projects</Button>
-        <Button style={buttonStyle} variant='contained' onClick={() => toggleView()}>CV</Button>
+        <Button style={{marginLeft: '5px'}} variant='contained' onClick={() => toggleView()}>{toggle ? 'Projects' : 'CV'}</Button>
         </div>
         <animated.div id='cardsSpring' style={projectsFade}>
           <div id='cards'>
