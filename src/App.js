@@ -71,7 +71,8 @@ function App() {
   const [toggle, setToggle] = useState(false)
 
   const [projectsFade, projectsFadeApi] = useSpring(() => ({opacity: 1, transform: 'translate(0px)'}))
-  const [CVfade, CVFadeApi] = useSpring(() => ({opacity: 0, transform: 'translate(0px)'}))
+  const [CVfade, CVFadeApi] = useSpring(() => ({opacity: 0, transform: 'translate(1000px)'}))
+  
 
   const toggleProjects = () =>{
     if (toggle) {
@@ -86,7 +87,7 @@ function App() {
       CVFadeApi({opacity: 1, transform: 'translate(0px)'})
       return
     }
-    CVFadeApi({opacity: 0, transform: 'translate(500px)'})
+    CVFadeApi({opacity: 0, transform: 'translate(1000px)'})
   }
 
   const toggleView = () => {
